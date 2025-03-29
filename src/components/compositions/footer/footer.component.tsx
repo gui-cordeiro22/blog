@@ -1,6 +1,18 @@
 // Dependencies
 import React, { FunctionComponent } from "react";
 
-export const Footer: FunctionComponent = () => {
-  return <p>Footer</p>;
+// Types
+import { FooterProps } from "./footer.types";
+
+export const Footer: FunctionComponent<FooterProps> = ({
+  headline,
+  copyrightMessage,
+}) => {
+  return (
+    <>
+      {headline}
+
+      {copyrightMessage}
+    </>
+  );
 };

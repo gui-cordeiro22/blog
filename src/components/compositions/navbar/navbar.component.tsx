@@ -1,6 +1,21 @@
 // Dependencies
 import React, { FunctionComponent } from "react";
 
-export const Navbar: FunctionComponent = () => {
-  return <p>Navbar</p>;
+// Styles
+import { Container, LinksCompositionsWrapper, Logo } from "./navbar.styles";
+
+// Types
+import { NavbarProps } from "./navbar.types";
+
+export const Navbar: FunctionComponent<NavbarProps> = ({
+  logo,
+  linksCompositions,
+}) => {
+  return (
+    <Container>
+      <Logo src={logo} alt="" />
+
+      <LinksCompositionsWrapper>{linksCompositions}</LinksCompositionsWrapper>
+    </Container>
+  );
 };
