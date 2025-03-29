@@ -1,5 +1,6 @@
 // Dependencies
-import React, { Fragment, FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 // Components
 import { Navbar } from "../compositions/navbar";
@@ -13,15 +14,18 @@ import { navbarData } from "../../mocks/navbar.mocks";
 import { LayoutProps } from "./layout.types";
 
 export const Layout: FunctionComponent<LayoutProps> = ({ contentPage }) => {
+  const location = useLocation();
+
   return (
     <Fragment>
       <Navbar
-        logo="teste"
+        logo="Entre | Linhas"
         linksCompositions={(navbarData ?? []).map((item, index) => (
           <Link
             key={`navbar-link-${index}`}
             name={item.name}
             href={item.href}
+            isActive={location.pathname === item.href}
           />
         ))}
       />
@@ -30,7 +34,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({ contentPage }) => {
 
       <Footer
         headline="Escreva sobre o que você tem interesse!"
-        copyrightMessage={`Blog © 2025`}
+        copyrightMessage={`© Todos os direitos reservados | Entre Linhas 2025`}
       />
     </Fragment>
   );
