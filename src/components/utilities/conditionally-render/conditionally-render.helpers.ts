@@ -1,17 +1,17 @@
 // Utils
-import { ternary } from '@/utils/ternary';
+import { ternary } from "../../../utils/ternary";
 
 // Data
-import { screenWidths } from './conditionally-render.data';
+import { screenWidths } from "./conditionally-render.data";
 
 // Types
-import { ConditionallyRenderScreen } from './conditionally-render.types';
+import { ConditionallyRenderScreen } from "./conditionally-render.types";
 
 export const getShouldRemoveContent = (
   windowWidth: number,
   shouldRender?: boolean,
   minimumBreakpoint?: ConditionallyRenderScreen,
-  maximumBreakpoint?: ConditionallyRenderScreen,
+  maximumBreakpoint?: ConditionallyRenderScreen
 ) => {
   const shouldRemoveContentBasedOnBreakpoints =
     ternary([
