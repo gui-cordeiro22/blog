@@ -17,7 +17,7 @@ export const ContentWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 1366px;
+  max-width: 1920px;
   gap: 16px;
 `;
 

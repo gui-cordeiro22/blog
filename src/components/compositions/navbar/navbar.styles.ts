@@ -5,12 +5,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   position: sticky;
   box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
   background-color: #fff;
   width: 100%;
-  padding: 8px 32px;
+  padding: 22px 32px;
   top: 0;
 `;
 
@@ -20,7 +20,7 @@ export const ContentWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1366px;
+  max-width: 1920px;
 `;
 
 export const Logo = styled.img``;

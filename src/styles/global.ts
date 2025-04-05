@@ -18,16 +18,25 @@ html, body, #root, #__next {
     }
   }
 
+  body {
+    background-color: #f6fcff;
+  }
+
   *, body, input, button, textarea, span, h1, h2, h3, h4, h5, h6 {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     outline: 0;
     border: 0;
+    font-family: 'Montserrat', sans-serif;
   }
 
   *:focus {
     outline: 0;
+  }
+
+  input::placeholder, textarea::placeholder {
+    font-family: 'Montserrat', sans-serif;
   }
 
   img {
