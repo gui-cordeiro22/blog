@@ -3,7 +3,7 @@ export const navbarData = [
 
   { name: "Sobre", href: "/sobre" },
 
-  { name: "Dashboard", href: "/dashboard" },
+  { name: "Criar conta", href: "/cadastro" },
 
   { name: "Entrar", href: "/login" },
 
