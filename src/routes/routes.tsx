@@ -6,10 +6,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { RouteValidator } from "./route-validator";
 
 // Pages
-const Home = lazy(() => import("../components/pages/home"));
+const Home = lazy(() => import("../pages/home"));
 const About = lazy(() => import("../components/pages/about"));
 const Login = lazy(() => import("../components/pages/login"));
-const Register = lazy(() => import("../components/pages/register"));
+const Register = lazy(() => import("../pages/register"));
 
 export const ApplicationRoutes: FunctionComponent = () => {
   return (

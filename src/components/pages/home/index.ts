@@ -1,4 +1,4 @@
 // Component
-import { HomePage } from "./home.page";
+import { Home } from "./home.component";
 
-export default HomePage;
+export { Home };

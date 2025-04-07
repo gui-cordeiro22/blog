@@ -1,4 +1,4 @@
 // Component
-import { Register } from "./register.page";
+import { Register } from "./register.component";
 
-export default Register;
+export { Register };

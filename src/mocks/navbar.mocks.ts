@@ -1,11 +1,11 @@
 export const navbarData = [
   { name: "Home", href: "/" },
 
-  { name: "Sobre", href: "/sobre" },
+  { name: "Entrar", href: "/login" },
 
   { name: "Criar conta", href: "/cadastro" },
 
-  { name: "Entrar", href: "/login" },
+  { name: "Sobre", href: "/sobre" },
 
   { name: "+ Novo post", href: "/criar-post" },
 
