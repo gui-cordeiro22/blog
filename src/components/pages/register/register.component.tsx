@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 
 // Layout
 import { Layout } from "../../layouts";
@@ -7,6 +7,19 @@ import { Layout } from "../../layouts";
 // Types
 import { RegisterProps } from "./register.types";
 
-export const Register: FunctionComponent<RegisterProps> = () => {
-  return <Layout contentPage={<h1>Register Page</h1>} />;
+export const Register: FunctionComponent<RegisterProps> = ({
+  headerSection,
+  registerFormSection,
+}) => {
+  return (
+    <Layout
+      contentPage={
+        <Fragment>
+          {headerSection}
+
+          {registerFormSection}
+        </Fragment>
+      }
+    />
+  );
 };

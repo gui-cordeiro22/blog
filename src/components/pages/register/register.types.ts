@@ -2,8 +2,8 @@
 import { ReactNode } from "react";
 
 export type RegisterElements = {
-  headerSectionElement: ReactNode;
-  registerFormComposition: ReactNode;
+  headerSection: ReactNode;
+  registerFormSection: ReactNode;
 };
 
 export type RegisterProps = RegisterElements;

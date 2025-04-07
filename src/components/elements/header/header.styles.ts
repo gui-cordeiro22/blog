@@ -6,9 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #edf3f6;
   width: 100%;
-  padding: 24px;
 `;
 
 export const ContentWrapper = styled.div`
@@ -16,11 +14,13 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 22px 32px;
   width: 100%;
   max-width: 1920px;
-  gap: 16px;
 `;
 
-export const Headline = styled.h3``;
+export const Title = styled.h1``;
 
-export const CopyrightMessage = styled.p``;
+export const Headline = styled.p`
+  color: #aaa;
+`;

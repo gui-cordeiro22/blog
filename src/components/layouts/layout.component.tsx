@@ -1,11 +1,11 @@
 // Dependencies
-import React, { Fragment, FunctionComponent, useState } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { useLocation } from "react-router-dom";
 
 // Components
-import { Navbar } from "../compositions/navbar";
+import { Navbar } from "../sections/navbar";
 import { Link } from "../elements/link";
-import { Footer } from "../compositions/footer";
+import { Footer } from "../sections/footer";
 
 // Utils
 import { navbarData } from "../../mocks/navbar.mocks";
