@@ -1,4 +1,4 @@
 // Component
-import { AboutPage } from "./about.page";
+import { About } from "./about.component";
 
-export default AboutPage;
+export { About };

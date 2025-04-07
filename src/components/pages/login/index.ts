@@ -1,4 +1,4 @@
 // Component
-import { Login } from "./login.page";
+import { Login } from "./login.component";
 
-export default Login;
+export { Login };

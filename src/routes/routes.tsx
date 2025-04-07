@@ -7,8 +7,8 @@ import { RouteValidator } from "./route-validator";
 
 // Pages
 const Home = lazy(() => import("../pages/home"));
-const About = lazy(() => import("../components/pages/about"));
-const Login = lazy(() => import("../components/pages/login"));
+const About = lazy(() => import("../pages/about"));
+const Login = lazy(() => import("../pages/login"));
 const Register = lazy(() => import("../pages/register"));
 
 export const ApplicationRoutes: FunctionComponent = () => {
