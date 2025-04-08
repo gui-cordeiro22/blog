@@ -30,30 +30,6 @@ export const Form = styled.form`
   gap: 16px;
 `;
 
-export const InputWrapper = styled.div`
-  background-color: #fff;
-  border-bottom: 1px solid #aaa;
-  padding: 6px;
-  width: 100%;
-`;
-
-export const Input = styled.input`
-  font-size: 16px;
-  background-color: transparent;
-  width: 100%;
-`;
-
-export const ErrorMessageWrapper = styled.div`
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 6px;
-  padding: 6px;
-`;
-
-export const ErrorMessage = styled.p`
-  color: #721c24;
-`;
-
 export const Button = styled.button`
   font-size: 16px;
   font-weight: bold;

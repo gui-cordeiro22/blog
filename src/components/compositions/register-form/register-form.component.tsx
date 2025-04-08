@@ -1,49 +1,35 @@
 // Dependencies
-import React, { useState, useEffect, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
+
+// Styles
 import {
   Button,
   Container,
   ContentWrapper,
   Form,
-  Input,
-  InputWrapper,
 } from "./register-form.styles";
 
-export const RegisterForm: FunctionComponent = () => {
+// Types
+import { RegisterFormProps } from "./register-form.types";
+
+export const RegisterForm: FunctionComponent<RegisterFormProps> = ({
+  nameInputElement,
+  emailInputElement,
+  passwordInputElement,
+  confirmPasswordInputElement,
+  handleSubmit,
+}) => {
   return (
     <Container>
       <ContentWrapper>
-        <Form action="">
-          <InputWrapper>
-            <Input type="text" name="user-name" placeholder="Nome" required />
-          </InputWrapper>
+        <Form onSubmit={handleSubmit}>
+          {nameInputElement}
 
-          <InputWrapper>
-            <Input
-              type="email"
-              name="user-mail"
-              placeholder="E-mail"
-              required
-            />
-          </InputWrapper>
+          {emailInputElement}
 
-          <InputWrapper>
-            <Input
-              type="password"
-              name="user-password"
-              placeholder="Senha"
-              required
-            />
-          </InputWrapper>
+          {passwordInputElement}
 
-          <InputWrapper>
-            <Input
-              type="password"
-              name="user-confirm-password"
-              placeholder="Confirmação de senha"
-              required
-            />
-          </InputWrapper>
+          {confirmPasswordInputElement}
 
           <Button type="submit">Cadastrar</Button>
         </Form>
