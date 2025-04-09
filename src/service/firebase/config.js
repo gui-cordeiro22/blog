@@ -1,6 +1,7 @@
 // Dependencies
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -15,4 +16,6 @@ const app = initializeApp(firebaseConfig);
 
 const dataBase = getFirestore(app);
 
-export { dataBase };
+const auth = getAuth(app);
+
+export { dataBase, auth };

@@ -6,6 +6,10 @@ export const InputField = styled.input`
   width: 100%;
   background-color: transparent;
   color: #000;
+
+  &::placeholder {
+    color: #ddd6cd;
+  }
 `;
 
 export const InputWrapper = styled.div`

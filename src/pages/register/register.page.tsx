@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -11,17 +11,56 @@ import { Input } from "../../components/elements/input";
 
 // Schema
 import { registerFormSchema } from "../../components/compositions/register-form/register-form.schema";
-import { RegisterFormData } from "../../components/compositions/register-form/register-form.types";
+
+// Types
+import { RegisterFormResponseData } from "../../components/compositions/register-form/register-form.types";
+
+// Hooks
+import { UseAuthentication } from "../../hooks/use-authentication";
 
 export const RegisterPage: FunctionComponent = () => {
-  const { register, handleSubmit, formState } = useForm<RegisterFormData>({
-    resolver: zodResolver(registerFormSchema),
-    mode: "onChange",
-  });
+  const { register, handleSubmit, formState, reset } =
+    useForm<RegisterFormResponseData>({
+      resolver: zodResolver(registerFormSchema),
+      mode: "onChange",
+      defaultValues: {
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      },
+    });
 
-  const handleCreateUser = (data: any) => {
-    console.log(data);
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const { createUser, error: authError, isLoading } = UseAuthentication();
+
+  const handleCreateUser = async (data: RegisterFormResponseData) => {
+    const { confirmPassword, ...dataWithoutConfirm } = data;
+
+    const response = await createUser(dataWithoutConfirm);
+
+    if (!!response && formState.isSubmitSuccessful) {
+      setSuccessMessage(
+        `Usuário: ${dataWithoutConfirm.name} criado com sucesso!`
+      );
+      reset();
+    }
+
+    setTimeout(() => {
+      setError("");
+      setSuccessMessage("");
+    }, 3000);
   };
+
+  useEffect(() => {
+    if (!!authError) {
+      setError(authError);
+    } else {
+      setError("");
+    }
+  }, [authError]);
 
   return (
     <Register
@@ -33,7 +72,6 @@ export const RegisterPage: FunctionComponent = () => {
       }
       registerFormSection={
         <RegisterForm
-          handleSubmit={handleSubmit(handleCreateUser)}
           nameInputElement={
             <Input
               type="text"
@@ -41,7 +79,6 @@ export const RegisterPage: FunctionComponent = () => {
               placeholder="Nome"
               {...(formState.errors.name?.message && {
                 errorMessage: `${formState.errors.name.message}`,
-                variant: "error",
               })}
             />
           }
@@ -52,7 +89,6 @@ export const RegisterPage: FunctionComponent = () => {
               placeholder="E-mail"
               {...(formState.errors.email?.message && {
                 errorMessage: `${formState.errors.email.message}`,
-                variant: "error",
               })}
             />
           }
@@ -63,7 +99,6 @@ export const RegisterPage: FunctionComponent = () => {
               placeholder="Senha"
               {...(formState.errors.password?.message && {
                 errorMessage: `${formState.errors.password.message}`,
-                variant: "error",
               })}
             />
           }
@@ -74,10 +109,19 @@ export const RegisterPage: FunctionComponent = () => {
               placeholder="Confirmação de senha"
               {...(formState.errors.confirmPassword?.message && {
                 errorMessage: `${formState.errors.confirmPassword.message}`,
-                variant: "error",
               })}
             />
           }
+          handleSubmit={handleSubmit(handleCreateUser)}
+          isLoading={isLoading}
+          {...(error && {
+            systemMessage: error,
+            variant: "error",
+          })}
+          {...(!error && {
+            systemMessage: successMessage,
+            variant: "success",
+          })}
         />
       }
     />

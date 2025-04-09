@@ -1,11 +1,19 @@
 // Dependencies
 import { ReactNode } from "react";
 
-export type RegisterFormData = {
+export type RegisterFormResponseData = {
   name: string;
   email: string;
   password: string;
   confirmPassword: string;
+};
+
+export type RegisterFormVariantMessage = "success" | "error";
+
+export type RegisterFormData = {
+  systemMessage?: string;
+  variant?: RegisterFormVariantMessage;
+  isLoading: boolean;
 };
 
 export type RegisterFormElements = {
@@ -19,4 +27,6 @@ export type RegisterFormAction = {
   handleSubmit: () => void;
 };
 
-export type RegisterFormProps = RegisterFormElements & RegisterFormAction;
+export type RegisterFormProps = RegisterFormData &
+  RegisterFormElements &
+  RegisterFormAction;
